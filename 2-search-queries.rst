@@ -16,7 +16,7 @@ find the corresponding AIP from the Digital Preservation System, the ID can be
 used to retrieve the AIP. For example, we know that we sent a SIP with the ID
 ``fbf9d109-545c-43c1-af06-287b829d1705`` and would like to retrieve it.
 
-1) Retrieve an AIP by its OBJID::
+#. Retrieve an AIP by its OBJID::
 
     curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=OBJID:fbf9d109-545c-43c1-af06-287b829d1705" | jq
 
@@ -44,7 +44,7 @@ Core elements are as follows:
 
 .. _Dublin Core: https://www.dublincore.org/specifications/dublin-core/
 
-2) Search for all AIPs::
+#. Search for all AIPs::
 
     curl -ku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=*:*
 
