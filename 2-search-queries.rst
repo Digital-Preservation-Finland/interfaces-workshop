@@ -102,15 +102,15 @@ Wildcards and fuzzy searches
 
      curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:shakki" | jq
 
-No wildcards return 0 results. But using a wildcard should return AIPs::
+11. No wildcards return 0 results. But using a wildcard should return AIPs::
 
      curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:shakki*" | jq
 
-11. Using fuzzy search to find strings close to the search term::
+12. Using fuzzy search to find strings close to the search term::
 
      curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:koti~" | jq
 
-This doesn't seem right, adjusting the similarity ratio to be more strict should
+13. This doesn't seem right, adjusting the similarity ratio to be more strict should
 do the trick::
 
      curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:koti~0.6" | jq
