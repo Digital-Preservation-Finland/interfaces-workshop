@@ -1,0 +1,42 @@
+#!/bin/bash
+
+base=https://86.50.170.64
+credentials=training
+complete=false
+
+if [ "$1" != "" ]
+then
+    dip_url=$1
+else
+    dip_url=/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/foo
+fi
+
+if [ "$2" != "" ]
+then
+    dip_filename=$2
+else
+    dip_filename=./dip.zip
+fi
+
+echo "Looking for DIP"
+status=$(curl -sku $credentials "$base$dip_url" | jq '.status' | tr -d '"')
+if [ $status != "success" ]
+then
+    echo "No DIP found!"
+else
+    while [ $complete = false ]
+    do  
+        echo "Polling for completed DIP."
+        complete=$(curl -sku $credentials "$base$dip_url" | jq '.data.complete' | tr -d '"')
+        sleep 2
+    done
+fi
+if [ $complete = "true" ]
+then
+    echo "DIP request found."
+    echo
+    echo "DIP complete. Downloading DIP."
+    download=$(curl -sku $credentials "$base$dip_url" | jq '.data.actions.download' | tr -d '"')
+    curl -skuo "$dip_filename"  $credentials "$base$download" | jq
+    echo "DIP downloaded as $dip_filename"
+fi

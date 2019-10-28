@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ "$2" != "" ]
+then
+    method=$2
+    params=skuX
+else
+    method=GET
+    params=sku
+fi
+
+
+
+curl -$params $method training "https://86.50.170.64$1" | jq

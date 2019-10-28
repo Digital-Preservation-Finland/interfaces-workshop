@@ -1,0 +1,22 @@
+#!/bin/bash
+
+base=https://86.50.170.64
+credentials=training
+search=/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search
+limit=100
+next=true
+page=1
+
+while [ $next = "true" ]
+do
+    preserved=$(curl -sku training "$base$search?limit=$limit&page=$page" | jq '.data.results | to_entries[] | .value.location' | tr -d '"')
+    preserved_arr=($preserved)
+    for aip_loc in ${preserved_arr[@]}
+    do
+        curl -sku training "$base$aip_loc" | jq
+    done
+    next=$(curl -sku training "$base$search?limit=$limit&page=$page" | jq '.data.links | has("next")')
+    page=$(( $page + 1 ))
+done
+
+echo -e "Now done"

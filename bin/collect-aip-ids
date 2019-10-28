@@ -1,0 +1,25 @@
+#!/bin/bash
+
+base=https://86.50.170.64
+credentials=training
+request=/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search
+limit=100
+next=true
+page=1
+aip_ids=""
+
+while [ $next = true ]
+do
+    id=$(curl -sku $credentials "$base$request?limit=$limit&page=$page" | jq '.data.results | to_entries[] | .value.id' | tr -d '"')
+    next=$(curl -sku $credentials "$base$request?limit=$limit&page=$page" | jq '.data.links | has("next")')
+    page=$(( $page + 1 ))
+    aip_ids+=" "$id
+done
+aip_arr=($aip_ids)
+
+echo "Found ${#aip_arr[@]} AIPs"
+echo "AIP identifiers:"
+for aip_id in ${aip_arr[@]}
+do
+    echo $aip_id
+done

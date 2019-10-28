@@ -1,0 +1,26 @@
+#!/bin/bash
+
+base=https://86.50.170.64
+credentials=training
+request=/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search
+next=true
+page=1
+
+echo "Listing AIPs"
+if [ "$1" != "" ]
+then
+    limit=$1
+    echo "Results shown per page is $1"
+else
+    limit=5
+    echo "Results shown per page is $limit"
+fi
+while [ $next = true ]
+do
+    echo "Page $page"
+    curl -sku $credentials "$base$request?limit=$limit&page=$page" | jq '.data.results'
+    next=$(curl -sku $credentials "$base$request?limit=$limit&page=$page" | jq '.data.links | has("next")')
+    page=$(( $page + 1 ))
+done
+
+echo -e "Done, all AIPS listed"
