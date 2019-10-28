@@ -114,3 +114,5 @@ Wildcards and fuzzy searches
 do the trick::
 
      curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:koti~0.6" | jq
+
+
