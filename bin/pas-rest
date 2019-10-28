@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ "$2" != "" ]
+if [ "$3" != "" ]
 then
-    method=$2
+    method=$3
     params=skuX
 else
     method=GET
@@ -11,4 +11,4 @@ fi
 
 
 
-curl -$params $method training "https://86.50.170.64$1" | jq
+curl -$params $method training$1 "https://86.50.170.64$2" | jq

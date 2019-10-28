@@ -1,12 +1,12 @@
 #!/bin/bash
 
 base=https://86.50.170.64
-credentials=training
+credentials=training:$1
 complete=false
 
-if [ "$1" != "" ]
+if [ "$2" != "" ]
 then
-    dip_url=$1
+    dip_url=$2
 else
     dip_url=/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/foo
 fi
@@ -31,10 +31,10 @@ then
     echo
     echo "DIP complete. Downloading DIP metadata."
     metadata=$(curl -sku $credentials "$base$dip_url" | jq '.data.actions.metadata' | tr -d '"')
-    if [ "$2" != "" ]
+    if [ "$3" != "" ]
     then
-        curl -skuo "$2" $credentials "$base$metadata"
-        echo "Metadata downloaded as $2."
+        curl -skuo "$3" $credentials "$base$metadata"
+        echo "Metadata downloaded as $3."
     else
         curl -sku $credentials "$base$metadata"
     fi

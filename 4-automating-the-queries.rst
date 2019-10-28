@@ -34,47 +34,47 @@ pas-rest
 A simple script that just adds the curl command, the base URL and the login
 credentials. The script needs the URL for the resource, e.g.::
 
-    pas-rest /api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search
+    pas-rest <password> /api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search
 
 loop-search
 -----------
 A script that lists all AIPs and loops through all pages while doing so::
 
-    loop-search
+    loop-search <password>
 
 loop-preserved
 --------------
 A script that loops all AIPs and performs the manage AIP command for each found
 package (``GET <base>/<contract>/preserved/<aip-id>``)::
 
-    loop-preserved
+    loop-preserved <password>
 
 collect-aip-ids
 ---------------
 A script that loops through all AIPs and returns a list of the AIP IDs::
 
-    collect-aip-ids
+    collect-aip-ids <password>
 
 get-dip
 -------
 A script that submits a DIP request, polls the DPS for the DIP creation and finally
 downloads the DIP as a file when it is ready::
 
-    get-dip  /api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29
+    get-dip <password> /api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29
 
 To specifiy the filename of the DIP, use it like this::
 
-    get-dip  /api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29 mydip.zip
+    get-dip <password> /api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29 mydip.zip
 
 get-dip-metadata
 ----------------
 Like the script above, but outputs the metadata (the mets.xml)::
 
-    get-dip-metadata  /api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29
+    get-dip-metadata <password> /api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29
 
 To save the metadata to a file::
 
-    get-dip-metadata  /api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29 mets.xml
+    get-dip-metadata <password> /api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29 mets.xml
 
 
 Further development
