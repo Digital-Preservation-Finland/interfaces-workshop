@@ -11,4 +11,4 @@ fi
 
 
 
-curl -$params $method training$1 "https://86.50.170.64$2" | jq
+curl -$params $method training:$1 "https://86.50.170.64$2" | jq
