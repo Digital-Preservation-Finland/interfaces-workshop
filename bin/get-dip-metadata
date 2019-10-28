@@ -33,7 +33,7 @@ then
     metadata=$(curl -sku $credentials "$base$dip_url" | jq '.data.actions.metadata' | tr -d '"')
     if [ "$3" != "" ]
     then
-        curl -skuo "$3" $credentials "$base$metadata"
+        curl -sku $credentials -o "$3" "$base$metadata"
         echo "Metadata downloaded as $3."
     else
         curl -sku $credentials "$base$metadata"

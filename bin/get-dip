@@ -37,6 +37,6 @@ then
     echo
     echo "DIP complete. Downloading DIP."
     download=$(curl -sku $credentials "$base$dip_url" | jq '.data.actions.download' | tr -d '"')
-    curl -skuo "$dip_filename"  $credentials "$base$download" | jq
+    curl -sku $credentials -o "$dip_filename" "$base$download" | jq
     echo "DIP downloaded as $dip_filename"
 fi

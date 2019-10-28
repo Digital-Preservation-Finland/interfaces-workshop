@@ -3,12 +3,12 @@
 if [ "$3" != "" ]
 then
     method=$3
-    params=skuX
+    params=X
 else
     method=GET
-    params=sku
+    params=""
 fi
 
 
 
-curl -$params $method training:$1 "https://86.50.170.64$2" | jq
+curl -sku "training:$1" $params $method "https://86.50.170.64$2" | jq
