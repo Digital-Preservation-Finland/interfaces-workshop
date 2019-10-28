@@ -7,7 +7,7 @@ training day held in October 2019 at CSC.
 Installation of the bash scripts
 --------------------------------
 
-Bash scripts are used in th fourth excercise. Install and run the bash scripts
+Bash scripts are used in the fourth excercise. Install and run the bash scripts
 like this::
 
     cd bin
@@ -35,6 +35,7 @@ These parameters are used:
 
     * -s silent mode, outputs only the response body
     * -k insecure, since the test server doesn't contain a real cert
+    * -u user, adds the user name to the request
     * -X command, for adding POST methoid to the disseminate requests
     * -o output, when saving the DIP as a file
 
@@ -47,7 +48,7 @@ The test data set and testing server
 ------------------------------------
 
 For this workshop, a test server is set up containing test data. This test server
-will only be open during the course of the workshop, but the example commands and
+will only be open during the workshop, but the example commands and
 scripts in this repository can be configured to work with real servers and
 credentials.
 

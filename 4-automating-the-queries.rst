@@ -12,7 +12,7 @@ downloaded automatically when it is ready.
 
 A simple polling of a DIP can be done e.g. with this command::
 
-    watch -n 5 curl -sku training "https://temp-course-instance/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29"
+    watch -n 5 curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29"
 
 In this excercise module the included shell scripts are meant to be utilized and
 can be further developed if necessary. 
@@ -44,7 +44,7 @@ A script that lists all AIPs and loops through all pages while doing so::
 
 loop-preserved
 --------------
-A script that loops all AIPs and performes the manage AIP command for each found
+A script that loops all AIPs and performs the manage AIP command for each found
 package (``GET <base>/<contract>/preserved/<aip-id>``)::
 
     loop-preserved

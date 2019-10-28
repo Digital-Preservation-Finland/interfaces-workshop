@@ -14,13 +14,13 @@ in one query. The user can configure and navigate the pages using the parameters
 
 1) Limit the search results to split the pages to several pages::
 
-    curl -sku training "https://temp-course-instance/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?limit=5&page=1" | jq
+    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?limit=5&page=1" | jq
 
 Now we can see that the ``links`` key in the result contain a URL to the next page.
 
 2) Display the results using the next page URL::
 
-    curl -sku training "https://temp-course-instance/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=&limit=5&page=2" | jq
+    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=&limit=5&page=2" | jq
 
 
 The test data - how is it described
@@ -67,8 +67,8 @@ the following questions:
     * Which content type is the most common in the collection?
     * What are the OBJID:s of the preserved resources?
 
-What information is most relevant for your organization when using the REST API
-to search and manage the preserved contents?
+What information is the most relevant for your organization when using the REST
+API to search and manage the preserved contents?
 
 Finding a specific AIP
 ----------------------
