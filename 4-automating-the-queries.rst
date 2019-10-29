@@ -57,8 +57,8 @@ A script that loops through all AIPs and returns a list of the AIP IDs::
 
 get-dip
 -------
-A script that submits a DIP request, polls the DPS for the DIP creation and finally
-downloads the DIP as a file when it is ready::
+A script that polls the DPS for the DIP creation after a DIP request has been
+sent and finally downloads the DIP as a file when it is ready::
 
     get-dip <password> /api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29
 
@@ -68,7 +68,7 @@ To specifiy the filename of the DIP, use it like this::
 
 get-dip-metadata
 ----------------
-Like the script above, but outputs the metadata (the mets.xml)::
+Like the script above, but outputs the metadata (the mets.xml) of the DIP::
 
     get-dip-metadata <password> /api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29
 
