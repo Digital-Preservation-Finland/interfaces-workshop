@@ -115,4 +115,19 @@ do the trick::
 
      curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:koti~0.6" | jq
 
+URL encoding characters
+-----------------------
 
+Special characters like whitespace ``" "`` and ``+`` need to be URL encoded. A 
+list of the characters and their corresponding codes can be found at `w3schools`_.
+
+.. _w3schools: https://www.w3schools.com/tags/ref_urlencode.asp
+
+14. Searching for a string containing whitespace::
+
+     curl -sku training "https://temp-course-instance/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:ohjaama%20elokuva" | jq 
+
+15. Searching for a phrase requires escaping the extra quotation marks around the
+    phrase::
+
+     curl -sku training "https://temp-course-instance/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:\"ohjaama%20elokuva%20pianisti\"" | jq
