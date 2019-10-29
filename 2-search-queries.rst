@@ -46,7 +46,7 @@ Core elements are as follows:
 
 2. Search for all AIPs::
 
-    curl -ku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=*:*
+    curl -ku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=*:*"
 
 The search query ``*:*`` returns all AIPs for a contract.
 
@@ -58,7 +58,7 @@ Searching for a ``key:*`` returns all AIPs with data in the key element
 
 4. Search for a specific creator::
 
-    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=creator:Westö
+    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=creator:Westö"
 
 Searching for content type
 --------------------------
