@@ -46,19 +46,19 @@ Core elements are as follows:
 
 2. Search for all AIPs::
 
-    curl -ku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=*:*"
+    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=*:*" | jq
 
 The search query ``*:*`` returns all AIPs for a contract.
 
 3. Search for AIPs with a coverage description::
 
-    curl -ku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=coverage:*" | jq
+    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=coverage:*" | jq
 
 Searching for a ``key:*`` returns all AIPs with data in the key element
 
 4. Search for a specific creator::
 
-    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=creator:Westö"
+    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=creator:Westö" | jq
 
 Searching for content type
 --------------------------
@@ -125,9 +125,9 @@ list of the characters and their corresponding codes can be found at `w3schools`
 
 14. Searching for a string containing whitespace::
 
-     curl -sku training "https://temp-course-instance/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:ohjaama%20elokuva" | jq 
+     curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:ohjaama%20elokuva" | jq 
 
 15. Searching for a phrase requires escaping the extra quotation marks around the
     phrase::
 
-     curl -sku training "https://temp-course-instance/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:\"ohjaama%20elokuva%20pianisti\"" | jq
+     curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:\"ohjaama%20elokuva%20pianisti\"" | jq
