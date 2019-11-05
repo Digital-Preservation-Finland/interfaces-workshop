@@ -12,7 +12,7 @@ downloaded automatically when it is ready.
 
 A simple polling of a DIP can be done e.g. with this command::
 
-    watch -n 5 curl -sku training:<password> "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29"
+    watch -n 5 curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/disseminated/8fa5008f-350f-4444-bbf2-4ae240073f29"
 
 In this excercise module the included shell scripts are meant to be utilized and
 can be further developed if necessary. 

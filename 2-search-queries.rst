@@ -18,7 +18,7 @@ used to retrieve the AIP. For example, we know that we sent a SIP with the ID
 
 1. Retrieve an AIP by its OBJID::
 
-    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=OBJID:fbf9d109-545c-43c1-af06-287b829d1705" | jq
+    curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=OBJID:fbf9d109-545c-43c1-af06-287b829d1705" | jq
 
 Search by the description of the content
 ----------------------------------------
@@ -46,19 +46,19 @@ Core elements are as follows:
 
 2. Search for all AIPs::
 
-    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=*:*" | jq
+    curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=*:*" | jq
 
 The search query ``*:*`` returns all AIPs for a contract.
 
 3. Search for AIPs with a coverage description::
 
-    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=coverage:*" | jq
+    curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=coverage:*" | jq
 
 Searching for a ``key:*`` returns all AIPs with data in the key element
 
 4. Search for a specific creator::
 
-    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=creator:Westö" | jq
+    curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=creator:Westö" | jq
 
 Searching for content type
 --------------------------
@@ -71,15 +71,15 @@ formatName element in the `PREMIS`_ metadata.
 
 5. Search for all AIPs containing text data::
 
-    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=formatName:text" | jq
+    curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=formatName:text" | jq
 
 6. Search for AIPs containing images::
 
-    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=formatName:image" | jq
+    curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=formatName:image" | jq
 
 7. Search using a specific format::
 
-    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=formatName:application/pdf" | jq
+    curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=formatName:application/pdf" | jq
 
 Using Boolean Operators
 -----------------------
@@ -89,31 +89,31 @@ for multiple conditions.
 
 8. Search for books about Japan::
 
-    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=type:Text+AND+subject:Japani" | jq
+    curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=type:Text+AND+subject:Japani" | jq
 
 9. Seach for books or Japan as the subject::
 
-    curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=type:Text+OR+subject:Japani" | jq
+    curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=type:Text+OR+subject:Japani" | jq
 
 Wildcards and fuzzy searches
 ----------------------------
 
 10. Using wildcards to search for a string at the beginning of a word::
 
-     curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:shakki" | jq
+     curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:shakki" | jq
 
 11. No wildcards return 0 results. But using a wildcard should return AIPs::
 
-     curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:shakki*" | jq
+     curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:shakki*" | jq
 
 12. Using fuzzy search to find strings close to the search term::
 
-     curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:koti~" | jq
+     curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:koti~" | jq
 
 13. This doesn't seem right, adjusting the similarity ratio to be more strict should
 do the trick::
 
-     curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:koti~0.6" | jq
+     curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:koti~0.6" | jq
 
 URL encoding characters
 -----------------------
@@ -125,9 +125,9 @@ list of the characters and their corresponding codes can be found at `w3schools`
 
 14. Searching for a string containing whitespace::
 
-     curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:ohjaama%20elokuva" | jq 
+     curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:ohjaama%20elokuva" | jq 
 
 15. Searching for a phrase requires escaping the extra quotation marks around the
     phrase::
 
-     curl -sku training "https://86.50.170.64/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:\"ohjaama%20elokuva%20pianisti\"" | jq
+     curl -sku <username:password> "https://<testing-instance>/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search?q=description:\"ohjaama%20elokuva%20pianisti\"" | jq

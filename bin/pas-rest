@@ -11,4 +11,4 @@ fi
 
 
 
-curl -sku "training:$1" $params $method "https://86.50.170.64$2" | jq
+curl -sku "username:$1" $params $method "https://testing-instance$2" | jq

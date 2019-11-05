@@ -1,7 +1,7 @@
 #!/bin/bash
 
-base=https://86.50.170.64
-credentials=training:$1
+base=https://testing-instance
+credentials=username:$1
 request=/api/2.0/urn:uuid:68320fee-f361-4a21-aad1-282c2040b994/search
 limit=100
 next=true
